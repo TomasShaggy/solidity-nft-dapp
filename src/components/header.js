@@ -1,51 +1,70 @@
-import { NavLink } from "react-router-dom";
+import React from "react";
 import video from "../images/retro.mp4";
+import { NavLink } from "react-router-dom";
 
-import "../App.scss";
-
-export default function Header() {
+const Header = () => {
   return (
-    <div className="header">
-      <NavLink to="/" exact>
-        home
-      </NavLink>
-      <NavLink to="/about" exact>
-        about
-      </NavLink>
-    </div>
-    /*     <div className="header">
-      <div className="container-uvodka grid grid-cols-12 min-h-screen">
-        <NavLink className="uvodka-links-wrapper col-span-8 pl-4">
+    <div className="header grid grid-cols-5">
+      <div className="col-span-3">
+        <NavLink
+          to="/"
+          exact
+          activeStyle={{
+            fontWeight: "bold",
+            color: "white",
+          }}
+        >
           <h1>TOMAS SCHLOGL</h1>
+        </NavLink>
+        <NavLink
+          to="/about"
+          exact
+          activeStyle={{
+            fontWeight: "bold",
+            color: "white",
+          }}
+        >
           <h1>ABOUT</h1>
-          <h1>EXPERIENCES</h1>
+        </NavLink>
+        <NavLink
+          to="/experience"
+          exact
+          activeStyle={{
+            fontWeight: "bold",
+            color: "white",
+          }}
+        >
+          <h1>EXPERIENCE</h1>
+        </NavLink>
+        <NavLink
+          to="/work"
+          exact
+          activeStyle={{
+            fontWeight: "bold",
+            color: "white",
+          }}
+        >
           <h1>WORK</h1>
+        </NavLink>
+        <NavLink
+          to="/contacts"
+          exact
+          activeStyle={{
+            fontWeight: "bold",
+            color: "white",
+          }}
+        >
           <h1>CONTACTS</h1>
         </NavLink>
-
-        <div className="text-video-wrapper col-span-3 grid grid-rows-6 ">
-          <div className="row-span-2 flex justify-center items-center ">
-            <video autoPlay loop muted>
-              <source src={video} type="video/mp4" />
-            </video>
-          </div>
-
-          <div className="row-span-4 flex justify-center items-center">
-            <p className="text-xl text-center leading-loose row-span-4 ">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod at
-              impedit dolores nobis, qui voluptatibus tenetur, distinctio nihil
-              quibusdam eos tempore, et eveniet! Et ea quaerat, quo corrupti,
-              vel quisquam dolore officia fugiat accusantium ullam nobis eveniet
-              asperiores cum sapiente, non animi. Vitae error porro cupiditate
-              molestiae repudiandae minima cumque. Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit.
-            </p>
-          </div>
-        </div>
-
-        <div className="col-span-1 md:flex hidden "></div>
+      </div>
+      <div className="uvodka-video-container col-span-2 flex justify-center items-center">
+        {/*         <video muted autoPlay loop className="px-8">
+          <source src={video} type="video/mp4" />
+        </video>
+ */}{" "}
       </div>
     </div>
- */
   );
-}
+};
+
+export default Header;

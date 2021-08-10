@@ -1,11 +1,10 @@
 import React from "react";
-
 import Title from "../components/title";
 
-const Home = () => {
+const Experience = () => {
   return (
     <>
-      <div className="page top-0 left-0 grid w-screen">
+      <div className="page top-0 left-0 grid grid-rows-3">
         <div className="inner bg-yellow-400">
           <Title
             lineContent1="Work"
@@ -24,4 +23,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Experience;
