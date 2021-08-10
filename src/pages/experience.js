@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import Title from "../components/title";
 
 const Experience = () => {
@@ -24,3 +24,4 @@ const Experience = () => {
 };
 
 export default Experience;
+ */

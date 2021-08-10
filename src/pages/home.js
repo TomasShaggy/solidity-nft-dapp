@@ -1,26 +1,15 @@
 import React from "react";
-
 import Title from "../components/title";
+import "../App.scss";
 
 const Home = () => {
   return (
-    <>
-      <div className="page top-0 left-0 grid w-screen">
-        <div className="inner bg-yellow-400">
-          <Title
-            lineContent1="Work"
-            lineContent2="need expert insight"
-            lineContent3="Work"
-            lineContent4="need expert insight"
-            lineContent5="Work"
-            lineContent6="need expert insight"
-          />
-          <div>
-            <div className="text">ahojda</div>
-          </div>
-        </div>
+    <div className="inner absolute left-2 top-2">
+      <Title lineContent="Home" lineContent2="About" lineContent3="Work" />
+      <div>
+        <p className="other">piči funguj pls pls</p>
       </div>
-    </>
+    </div>
   );
 };
 

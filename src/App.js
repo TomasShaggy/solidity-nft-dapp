@@ -7,18 +7,12 @@ import "./App.scss";
 import About from "./pages/about";
 import Header from "./components/header";
 import Home from "./pages/home";
-import Contacts from "./pages/contacts";
-import Showcase from "./pages/showcase";
 import Work from "./pages/work";
-import Experience from "./pages/experience";
 
 const routes = [
   { path: "/", name: "Home", Component: Home },
   { path: "/about", name: "About", Component: About },
-  { path: "/contacts", name: "Contacts", Component: Contacts },
-  { path: "/showcase", name: "Showcase", Component: Showcase },
   { path: "/work", name: "Work", Component: Work },
-  { path: "/experience", name: "Experience", Component: Experience },
 ];
 
 function App() {
@@ -41,9 +35,9 @@ function App() {
   const onExit = (node) => {
     gsap.to(
       [node.children[0].firstElementChild, node.children[0].lastElementChild],
-      0.6,
       {
-        y: -30,
+        duration: 5,
+        y: -35,
         ease: "power3.InOut",
         stagger: {
           amount: 0.2,
@@ -54,30 +48,24 @@ function App() {
 
   return (
     <>
-      <div>
-        <Header />
-        <div className="containerr relative">
-          {routes.map(({ path, Component }) => (
-            <Route key={path} exact path={path}>
-              {({ match }) => (
-                <CSSTransition
-                  in={match != null}
-                  timeout={1200}
-                  classNames="page"
-                  onExit={onExit}
-                  onEntering={onEnter}
-                  unmountOnExit
-                >
-                  <>
-                    <Component />
-                    <div className="skryta-absolute"></div>
-                  </>
-                </CSSTransition>
-              )}
-            </Route>
-          ))}
-        </div>
-      </div>
+      {routes.map(({ path, Component }) => (
+        <Route key={path} exact path={path}>
+          {({ match }) => (
+            <CSSTransition
+              in={match != null}
+              timeout={1200}
+              classNames="page"
+              onExit={onExit}
+              onEntering={onEnter}
+              unmountOnExit
+            >
+              <div className="page">
+                <Component />
+              </div>
+            </CSSTransition>
+          )}
+        </Route>
+      ))}
     </>
   );
 }

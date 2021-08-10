@@ -9,42 +9,25 @@ body {
   font-family: "Panchang", sans-serif;
 }
 
-.header {
-  height: 40rem;
+@import url("https://fonts.googleapis.com/css?family=Bebas+Neue|Poppins:300,400&display=swap");
+
+.inner {
   h1 {
-    font-size: 5.25rem;
-    font-weight: 800;
+    font-family: "Bebas Neue";
+    font-size: 52px;
+    letter-spacing: 0.1rem;
+    .line-wrap {
+      overflow: hidden;
+      height: 66px;
+    }
   }
-}
-
-.skryta-absolute {
-  height: 30rem;
-}
-
-.page {
-  position: absolute;
-  height: 40rem;
-
-  .inner {
-    display: flex;
-    justify-content: center;
-    h1 {
-      font-family: "Bebas Neue";
-      font-size: 52px;
-      letter-spacing: 0.1rem;
-      .line-wrap {
-        overflow: hidden;
-        height: 70px;
-      }
-    }
-    p {
-      font-family: "Poppins";
-      margin-top: 200px;
-      width: 340px;
-      font-weight: 300;
-      line-height: 24px;
-      font-size: 14px;
-    }
+  p {
+    font-family: "Poppins";
+    margin-top: 200px;
+    width: 340px;
+    font-weight: 300;
+    line-height: 24px;
+    font-size: 14px;
   }
 }
 
@@ -63,5 +46,4 @@ body {
   opacity: 0;
   transition: opacity 400ms;
 }
-
 @import "./styles/variables";

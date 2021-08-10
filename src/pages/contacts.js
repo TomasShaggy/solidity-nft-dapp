@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 
 import Title from "../components/title";
 
@@ -25,3 +25,4 @@ const Contacts = () => {
 };
 
 export default Contacts;
+ */

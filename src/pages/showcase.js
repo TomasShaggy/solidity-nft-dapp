@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import Title from "../components/title";
 
 const Showcase = () => {
@@ -20,3 +20,4 @@ const Showcase = () => {
 };
 
 export default Showcase;
+ */

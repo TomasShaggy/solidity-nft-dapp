@@ -4,17 +4,10 @@ import Title from "../components/title";
 
 const Work = () => {
   return (
-    <>
-      <div className="page top-0 left-0 w-screen">
-        <div className="inner">
-          <Title
-            lineContent1="Moje dosavadní práce"
-            lineContent2="Prosím potvrďte to"
-          />
-        </div>
-      </div>
-      <section className="h-screen bg-yellow-300"></section>
-    </>
+    <div className="inner absolute left-2 top-2">
+      <Title lineContent="Home" lineContent2="About" lineContent3="Work" />
+      <p className="other">piči funguj</p>
+    </div>
   );
 };
 
