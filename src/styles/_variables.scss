@@ -1,6 +1,9 @@
-$red: #b82f2f;
+$dark-blue: #3b64bf; //i nadpisy u vyberu
+$darker-blue: #132a5c;
+$text-color: #214ba6;
+$default-orange: #ff9f74;
 $black: #000;
 $white: #fff;
 
-@import "./grain";
-@import "./headings";
+@import "./components/header";
+@import "./pages/home";

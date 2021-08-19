@@ -1,32 +1,27 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import Title from "../components/title";
+import * as ROUTES from "../constants/routes";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
-const Header = () => {
+export default function Header() {
   return (
-    <div className="header">
-      <NavLink
-        to="/"
-        exact
-        activeStyle={{
-          fontWeight: "bold",
-          color: "red",
-        }}
-      >
-        Home
-      </NavLink>
-      <NavLink
-        to="/about"
-        exact
-        activeStyle={{
-          fontWeight: "bold",
-          color: "red",
-        }}
-      >
-        About
-      </NavLink>
+    <div className="header-container bg-dark-blue h-32 flex justify-end items-center">
+      <Link to={ROUTES.HOME}>
+        <h1 className="header-logo absolute left-3">DIANA</h1>
+      </Link>
+
+      <ul className="flex">
+        <Link to={ROUTES.HOME}>
+          <li className="header-li">Úvod</li>
+        </Link>
+        <Link to={ROUTES.OFFER} exact>
+          <li className="header-li">Výběr</li>
+        </Link>
+        <Link to={ROUTES.SHOWCASE}>
+          <li className="header-li">Galerie</li>
+        </Link>
+        <Link to={ROUTES.CONTACTS}>
+          <li className="header-li">Kontakty</li>
+        </Link>
+      </ul>
     </div>
   );
-};
-
-export default Header;
+}

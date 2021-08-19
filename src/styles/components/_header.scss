@@ -1,0 +1,11 @@
+.header-li {
+  padding: 1rem;
+  color: $white;
+  font-weight: 300;
+  &:hover {
+    color: $default-orange;
+  }
+  &:active {
+    color: $default-orange;
+  }
+}

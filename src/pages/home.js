@@ -1,16 +1,20 @@
-import React from "react";
-import Title from "../components/title";
 import "../App.scss";
+import uvodkaImage from "../assets/images/homepage-uvodka-image.jpg"
 
-const Home = () => {
+export default function Home(){
   return (
-    <div className="inner absolute left-2 top-2">
-      <Title lineContent="Home" lineContent2="About" lineContent3="Work" />
-      <div>
-        <p className="other">piči funguj pls pls</p>
-      </div>
-    </div>
-  );
-};
+    <div className="homepage-container grid grid-cols-5">
 
-export default Home;
+        <div className="col-span-5 homepage-nadpis-wrapper bg-green-500 pt-3 pb-1  auto-padding">
+          <h1 className="homepage-uvodka-nadpis">Cukrárna & Kavárna Diana</h1>
+        </div>
+        <div className="col-span-3 homepage-uvodka-wrapper bg-red-500  auto-padding">
+
+        <img src={uvodkaImage} alt="image" />
+
+        </div>
+        <div className="col-span-2 homepage-uvodka-wrapper bg-yellow-800  auto-padding">x</div>
+
+    </div>
+  )
+}
