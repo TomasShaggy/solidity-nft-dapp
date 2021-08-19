@@ -5,7 +5,8 @@
   &:hover {
     color: $default-orange;
   }
-  &:active {
-    color: $default-orange;
-  }
+}
+.active-header {
+  color: $default-orange;
+  font-weight: 300;
 }

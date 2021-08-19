@@ -2,6 +2,7 @@ import Header from "./components/header";
 import * as ROUTES from "./constants/routes";
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.scss";
 
 const Home = lazy(() => import("./pages/home"));
 const Showcase = lazy(() => import("./pages/showcase"));
@@ -16,7 +17,7 @@ export default function App() {
           <Header />
           <Switch>
             <Route path={ROUTES.HOME} component={Home} exact />
-            <Route path={ROUTES.SHOWCASE} component={Showcase} />
+            <Route path={ROUTES.SHOWCASE} component={Showcase} exact />
             <Route path={ROUTES.CONTACTS} component={Contacts} />
             <Route path={ROUTES.OFFER} component={Offer} />
           </Switch>
