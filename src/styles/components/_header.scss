@@ -8,5 +8,11 @@
 }
 .active-header {
   color: $default-orange;
-  font-weight: 300;
+}
+
+.header-logo {
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 600;
+  font-size: 2rem;
 }

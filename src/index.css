@@ -6,4 +6,7 @@
   .auto-padding {
     @apply px-12;
   }
+  .text-zleva-stred {
+    @apply lg:text-left text-center;
+  }
 }

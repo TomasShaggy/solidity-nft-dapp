@@ -1,9 +1,29 @@
-.homepage-uvodka-wrapper {
-  height: 55rem;
+.homepage-uvodka-image-wrapper,
+.homepage-uvodka-text-wrapper {
+  height: 35rem;
 }
+.homepage-uvodka-image-wrapper {
+  @media (max-width: 1024px) {
+    height: 25rem;
+    border: 2px solid black;
+  }
+}
+
 .homepage-nadpis-wrapper {
   height: auto;
   .homepage-uvodka-nadpis {
-    font-size: 8.5rem;
+    font-size: 6.5rem;
+    @media (max-width: 1024px) {
+      font-size: 2rem;
+    }
+  }
+}
+.about-image-wrapper {
+  height: 40rem;
+}
+
+.active-about-wrapper {
+  @media (max-width: 1024px) {
+    grid-column: 1 / -1;
   }
 }
