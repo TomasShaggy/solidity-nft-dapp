@@ -23,7 +23,49 @@
 }
 
 .active-about-wrapper {
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
     grid-column: 1 / -1;
+  }
+}
+
+.col-suroviny-wrapper {
+  background: lightseagreen;
+  border: 2px solid grey;
+  min-height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media (max-width: 1024px) {
+    align-items: center;
+    text-align: center;
+  }
+  .text-suroviny {
+    color: pink;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: -1rem;
+      width: 100%;
+      height: 5px;
+      background: yellow;
+    }
+  }
+}
+.druhy-col {
+  @media (min-width: 1025px) {
+    text-align: center;
+    align-items: center;
+  }
+}
+.posledni-col {
+  @media (min-width: 1025px) {
+    background: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: right;
   }
 }

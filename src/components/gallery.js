@@ -3,7 +3,7 @@ import kafeImage from "../assets/images/kafe-gallery.png";
 
 export default function Gallery() {
   return (
-    <div className="homepage-container min-h-screen grid lg:col-span-10 col-span-12 bg-indigo-700">
+    <div className="homepage-container min-h-screen grid lg:grid-cols-12 grid-cols-1 bg-indigo-700">
       <div className="col-span-1 lg:flex hidden"></div>
 
       <div className="col-span-10 grid lg:grid-cols-5 grid-cols-1 2xl:gap-10 xl:gap-8 lg:gap-6 lg:gap-y-0 gap-y-5  h-auto">

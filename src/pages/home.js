@@ -7,17 +7,19 @@ const aboutSekce = [
     id: "prvni",
     nadpis: "Kvalita",
     text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
+    nazev: "prvni-col col-suroviny-wrapper",
   },
   {
     id: "druhy",
     nadpis: "Dovoz",
     text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
+    nazev: "druhy-col col-suroviny-wrapper ",
   },
   {
     id: "treti",
     nadpis: "Suroviny",
     text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
-    nazev: "active-about-wrapper ",
+    nazev: "active-about-wrapper posledni-col col-suroviny-wrapper ",
   },
 ];
 
@@ -73,11 +75,11 @@ export default function Home() {
           {aboutSekce.map((item) => {
             const { nadpis, id, text, nazev } = item;
             return (
-              <div className={id === "treti" ? nazev : "bg-blue-400"} key={id}>
+              /*               <div className={id === "treti" ? nazev : "bg-blue-400"} key={id}>
+               */
+              <div className={nazev} key={id}>
                 <h1>{nadpis}</h1>
-                <h2>{nazev}</h2>
-                <p className="w-2/3">{text}</p>
-                <span>___</span>
+                <p className="w-2/3 bg-red-300 text-suroviny">{text}</p>
               </div>
             );
           })}
