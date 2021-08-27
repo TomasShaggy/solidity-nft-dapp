@@ -8,6 +8,7 @@ module.exports = {
         "dark-blue": "#3b64bf", //i nadpisy u vyberu
         "darker-blue": "#132a5c",
         "text-color": "#214ba6",
+        "dark-white": "#FDFFFD",
       },
     },
   },

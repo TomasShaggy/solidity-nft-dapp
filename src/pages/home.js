@@ -39,7 +39,7 @@ export default function Home() {
             <img
               src={uvodkaImage}
               alt="uvodka"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain"
             />
           </div>
           <div className="lg:col-span-2 col-span-5 homepage-uvodka-text-wrapper bg-yellow-800  text-zleva-stred">

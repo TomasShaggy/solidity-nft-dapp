@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 
 export default function Header() {
   return (
-    <div className="fixed">
-      <div className="header-container bg-dark-blue h-28 flex justify-end items-center relative w-screen">
+    <div className="fixed header-container">
+      <div className=" bg-dark-blue h-28 flex justify-end items-center relative w-screen">
         <NavLink to={ROUTES.HOME}>
           <h1 className="header-logo absolute left-14 text-default-orange">
             DIANA

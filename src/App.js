@@ -1,5 +1,6 @@
 import Header from "./components/header";
 import Footer from "./components/footer";
+import Loading from "./components/loading";
 import * as ROUTES from "./constants/routes";
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -14,7 +15,7 @@ export default function App() {
   return (
     <Router>
       <Header />
-      <Suspense fallback={<p>loading..</p>}>
+      <Suspense fallback={<Loading />}>
         <Switch>
           <Route path={ROUTES.HOME} component={Home} exact />
           <Route path={ROUTES.SHOWCASE} component={Showcase} exact />
