@@ -2,7 +2,6 @@ import contract from "../contract/contract.json";
 import Web3 from "web3";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import userEvent from "@testing-library/user-event";
 
 const initialInfo = {
   connected: false,
@@ -17,11 +16,7 @@ const initialDropsState = {
 };
 
 export default function DropList() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const [info, setInfo] = useState(initialInfo);
   const [drops, setDrops] = useState(initialDropsState);
@@ -34,7 +29,7 @@ export default function DropList() {
       const networkId = await window.ethereum.request({
         method: "net_version",
       });
-      if (networkId == 4) {
+      if (networkId === 4) {
         let web3 = new Web3(window.ethereum);
         setInfo({
           ...initialInfo,
@@ -43,7 +38,10 @@ export default function DropList() {
           contract: new web3.eth.Contract(contract.abi, contract.address),
         });
       } else {
-        setInfo({ ...initialInfo, status: "You need to change the network" });
+        setInfo({
+          ...initialInfo,
+          status: "You need to change the network ffs",
+        });
       }
 
       //
@@ -61,6 +59,8 @@ export default function DropList() {
       });
     }
   };
+
+  //1646168346
 
   const getDrops = async () => {
     setDrops((prevState) => ({
@@ -85,7 +85,7 @@ export default function DropList() {
 
   const onSubmit = (data) => {
     let newData = {
-      imageUri: data.ImageUri,
+      imageUri: data.imageUri,
       name: data.name,
       description: data.description,
       social_1: data.social_1,
@@ -99,6 +99,8 @@ export default function DropList() {
       approved: false,
     };
 
+    console.log(Object.values(newData));
+
     info.contract.methods
       .addDrop(Object.values(newData))
       .send({ from: info.account })
@@ -107,7 +109,7 @@ export default function DropList() {
           loading: false,
           list: res,
         });
-        console.log(res);
+        console.log(res, "<--- res");
       })
       .catch((err) => {
         console.log(err);
@@ -118,12 +120,13 @@ export default function DropList() {
   useEffect(() => {
     init();
     initOnChanged();
+    console.log(window.etherem);
   }, []);
 
   return (
     <div className="bg-green-300">
       <button onClick={() => getDrops()}>Get Drops </button>
-      {drops.loading ? <p>loading</p> : null}
+
       {drops.list.map((item) => {
         const {
           name,
