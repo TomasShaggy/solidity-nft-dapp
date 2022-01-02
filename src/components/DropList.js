@@ -3,6 +3,11 @@ import Web3 from "web3";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
+//0xd2Bc8300DfcFb8C3e0fB4DD2adDBDe9ad15Ba08F
+
+//abi
+//{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[{"components":[{"internalType":"string","name":"imageUri","type":"string"},{"internalType":"string","name":"name","type":"string"},{"internalType":"string","name":"description","type":"string"},{"internalType":"string","name":"social_1","type":"string"},{"internalType":"string","name":"social_2","type":"string"},{"internalType":"string","name":"websiteUri","type":"string"},{"internalType":"string","name":"price","type":"string"},{"internalType":"uint256","name":"supply","type":"uint256"},{"internalType":"uint256","name":"presale","type":"uint256"},{"internalType":"uint256","name":"sale","type":"uint256"},{"internalType":"uint8","name":"chain","type":"uint8"},{"internalType":"bool","name":"approved","type":"bool"}],"internalType":"struct ShaggyHunter.Drop","name":"_drop","type":"tuple"}],"name":"addDrop","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_index","type":"uint256"}],"name":"approveDrop","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"drops","outputs":[{"internalType":"string","name":"imageUri","type":"string"},{"internalType":"string","name":"name","type":"string"},{"internalType":"string","name":"description","type":"string"},{"internalType":"string","name":"social_1","type":"string"},{"internalType":"string","name":"social_2","type":"string"},{"internalType":"string","name":"websiteUri","type":"string"},{"internalType":"string","name":"price","type":"string"},{"internalType":"uint256","name":"supply","type":"uint256"},{"internalType":"uint256","name":"presale","type":"uint256"},{"internalType":"uint256","name":"sale","type":"uint256"},{"internalType":"uint8","name":"chain","type":"uint8"},{"internalType":"bool","name":"approved","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getDrops","outputs":[{"components":[{"internalType":"string","name":"imageUri","type":"string"},{"internalType":"string","name":"name","type":"string"},{"internalType":"string","name":"description","type":"string"},{"internalType":"string","name":"social_1","type":"string"},{"internalType":"string","name":"social_2","type":"string"},{"internalType":"string","name":"websiteUri","type":"string"},{"internalType":"string","name":"price","type":"string"},{"internalType":"uint256","name":"supply","type":"uint256"},{"internalType":"uint256","name":"presale","type":"uint256"},{"internalType":"uint256","name":"sale","type":"uint256"},{"internalType":"uint8","name":"chain","type":"uint8"},{"internalType":"bool","name":"approved","type":"bool"}],"internalType":"struct ShaggyHunter.Drop[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_index","type":"uint256"},{"components":[{"internalType":"string","name":"imageUri","type":"string"},{"internalType":"string","name":"name","type":"string"},{"internalType":"string","name":"description","type":"string"},{"internalType":"string","name":"social_1","type":"string"},{"internalType":"string","name":"social_2","type":"string"},{"internalType":"string","name":"websiteUri","type":"string"},{"internalType":"string","name":"price","type":"string"},{"internalType":"uint256","name":"supply","type":"uint256"},{"internalType":"uint256","name":"presale","type":"uint256"},{"internalType":"uint256","name":"sale","type":"uint256"},{"internalType":"uint8","name":"chain","type":"uint8"},{"internalType":"bool","name":"approved","type":"bool"}],"internalType":"struct ShaggyHunter.Drop","name":"_drop","type":"tuple"}],"name":"updateDrop","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"users","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"}
+
 const initialInfo = {
   connected: false,
   status: null,
@@ -16,20 +21,24 @@ const initialDropsState = {
 };
 
 export default function DropList() {
-  const { register, handleSubmit } = useForm();
+  console.log(contract);
 
   const [info, setInfo] = useState(initialInfo);
   const [drops, setDrops] = useState(initialDropsState);
 
+  const { register, handleSubmit } = useForm();
+
   const init = async () => {
     if (window.ethereum?.isMetaMask) {
+      console.log("you have metamask");
       const accounts = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
+      console.log(accounts, "<-- acounts");
       const networkId = await window.ethereum.request({
         method: "net_version",
       });
-      if (networkId === 4) {
+      if (networkId == 4) {
         let web3 = new Web3(window.ethereum);
         setInfo({
           ...initialInfo,
@@ -40,7 +49,7 @@ export default function DropList() {
       } else {
         setInfo({
           ...initialInfo,
-          status: "You need to change the network ffs",
+          status: "You need to change the network",
         });
       }
 
@@ -98,9 +107,7 @@ export default function DropList() {
       chain: Number(data.chain),
       approved: false,
     };
-
     console.log(Object.values(newData));
-
     info.contract.methods
       .addDrop(Object.values(newData))
       .send({ from: info.account })
@@ -109,7 +116,7 @@ export default function DropList() {
           loading: false,
           list: res,
         });
-        console.log(res, "<--- res");
+        console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -125,7 +132,7 @@ export default function DropList() {
 
   return (
     <div className="bg-green-300">
-      <button onClick={() => getDrops()}>Get Drops </button>
+      <button onClick={() => getDrops()}>Get Drops</button>
 
       {drops.list.map((item) => {
         const {
@@ -184,7 +191,10 @@ export default function DropList() {
         <input {...register("chain")} />
         <br />
 
-        <input type="submit" />
+        <input
+          type="submit"
+          className="hover:bg-red-500 cursor-pointer mb-80"
+        />
       </form>
     </div>
   );
